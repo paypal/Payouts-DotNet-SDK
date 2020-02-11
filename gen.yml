@@ -1,0 +1,6 @@
+---
+projectName: payouts-sdk
+language: dotnet
+sourcePath: Source
+testPath: Test
+apiVersioning: false

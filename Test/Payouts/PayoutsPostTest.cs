@@ -53,7 +53,7 @@ namespace PayoutsSdk.Payouts.Test
         {
 
             HttpResponse response = await TestCreatePayoutRequest();
-            Assert.Equal((int) response.StatusCode, 201);
+            Assert.Equal(201,(int) response.StatusCode);
             Assert.NotNull(response.Result<CreatePayoutResponse>());
 
             // Add your own checks here

@@ -28,7 +28,7 @@ namespace PayoutsSdk.Payouts.Test
                 .TotalRequired(true);
 
             HttpResponse getResponse = await TestHarness.client().Execute(request);
-            Assert.Equal((int) getResponse.StatusCode, 200);
+            Assert.Equal(200,(int) getResponse.StatusCode);
             Assert.NotNull(getResponse.Result<PayoutBatch>());
 
             // Add your own checks here

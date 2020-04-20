@@ -32,7 +32,7 @@ namespace PayoutsSdk.Payouts.Test
             PayoutsItemCancelRequest cancelRequest = new PayoutsItemCancelRequest(batchDetails.Items[0].PayoutItemId);
 
             HttpResponse cancelResponse = await TestHarness.client().Execute(cancelRequest);
-            Assert.Equal((int) cancelResponse.StatusCode, 200);
+            Assert.Equal(200,(int) cancelResponse.StatusCode);
             Assert.NotNull(cancelResponse.Result<PayoutItemResponse>());
 
             // Add your own checks here

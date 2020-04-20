@@ -29,7 +29,7 @@ namespace PayoutsSdk.Payouts.Test
             PayoutsItemGetRequest itemGetRequest = new PayoutsItemGetRequest(batchDetails.Items[0].PayoutItemId);
             
             HttpResponse itemGetResponse = await TestHarness.client().Execute(itemGetRequest);
-            Assert.Equal((int) itemGetResponse.StatusCode, 200);
+            Assert.Equal(200,(int) itemGetResponse.StatusCode);
             Assert.NotNull(itemGetResponse.Result<PayoutItemResponse>());
 
             // Add your own checks here

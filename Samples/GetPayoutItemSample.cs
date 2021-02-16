@@ -18,6 +18,7 @@ namespace Samples
         public async static Task<HttpResponse> GetPayoutItem(string itemId,bool debug = false)
         {
 
+            try{
             PayoutsItemGetRequest request = new PayoutsItemGetRequest(itemId);
             var getResponse = await PayPalClient.client().Execute(request);
             var result = getResponse.Result<PayoutItemResponse>();
@@ -33,6 +34,13 @@ namespace Samples
 
             }
             return getResponse;
+            } catch(HttpException ex){
+               
+                String errorString = ex.Message;
+                Error error= ErrorUtil.deserializeError(errorString);
+                ErrorUtil.printError(error);
+                return null;
+            }
         }
 
         /*static void Main(string[] args)

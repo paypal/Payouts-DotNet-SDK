@@ -1,16 +1,8 @@
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-
-using Samples;
 using PayoutsSdk.Payouts;
-using PayoutsSdk.Core;
 using PayPalHttp;
-using System.Threading;
-using System.IO;
-using System.Text;
-using System.Runtime.Serialization.Json;
 namespace Samples
 {
     public class CancelPayoutItem
@@ -18,6 +10,7 @@ namespace Samples
 
         public async static Task<HttpResponse> CancelItem(string itemId,bool debug = false)
         {
+            try {
             PayoutsItemCancelRequest request = new PayoutsItemCancelRequest(itemId);
             var cancelResponse = await PayPalClient.client().Execute(request);
             var result = cancelResponse.Result<PayoutItemResponse>();
@@ -35,9 +28,16 @@ namespace Samples
 
             }
             return cancelResponse;
+            } catch(HttpException ex){
+               
+                String errorString = ex.Message;
+                Error error= ErrorUtil.deserializeError(errorString);
+                ErrorUtil.printError(error);
+                return null;
+            }
         }
 
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
 
             var response = CreatePayoutSample.CreatePayout(true);
@@ -50,6 +50,6 @@ namespace Samples
 
             Thread.Sleep(10000);
             CancelItem(payoutBatch.Items[0].PayoutItemId,true).Wait();
-        }
+        }*/
     }
 }

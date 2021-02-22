@@ -1,12 +1,10 @@
 using System;
 using System.IO;
 using System.Text;
-using System.Net.Http;
-using System.Collections.Generic;
 using PayPalHttp;
 using Xunit;
 using PayoutsSdk.Test;
-using static PayoutsSdk.Test.TestHarness;
+using System.Runtime.Serialization.Json;
 
 
 namespace PayoutsSdk.Payouts.Test
@@ -33,6 +31,33 @@ namespace PayoutsSdk.Payouts.Test
             Assert.NotNull(itemGetResponse.Result<PayoutItemResponse>());
 
             // Add your own checks here
+        }
+
+         [Fact]
+        public async void TestPayoutsItemFailureGetRequest()
+        {   
+        
+            PayoutsItemGetRequest itemGetRequest = new PayoutsItemGetRequest("2349");
+            
+           try {
+               HttpResponse itemGetResponse = await TestHarness.client().Execute(itemGetRequest);
+           } catch(Exception ex){
+                String errorString = ex.Message;
+                var deserializedError = new Error();
+                var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(errorString));
+                var deserializer = new DataContractJsonSerializer(deserializedError.GetType());
+                deserializedError = deserializer.ReadObject(memoryStream) as Error;
+                memoryStream.Close();
+                
+                Assert.NotNull(deserializedError);
+                Assert.NotNull(deserializedError.DebugId);
+                Assert.NotNull(deserializedError.Details);
+                Assert.NotNull(deserializedError.Message);
+                Assert.Equal("The requested resource ID was not found",deserializedError.Message);
+                Assert.Equal("INVALID_RESOURCE_ID", deserializedError.Name);
+                
+                
+           }
         }
     }
 }

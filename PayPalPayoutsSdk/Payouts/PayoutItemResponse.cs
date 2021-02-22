@@ -89,6 +89,12 @@ namespace PayoutsSdk.Payouts
         /// </summary>
         [DataMember(Name="transaction_status", EmitDefaultValue = false)]
         public string TransactionStatus;
+
+        /// <summary>	
+        /// The error details.	
+        /// </summary>	
+        [DataMember(Name="errors", EmitDefaultValue = false)]	
+        public Error Errors;
     }
 }
 

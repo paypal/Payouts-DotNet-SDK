@@ -72,9 +72,5 @@ namespace Samples
             }
         }
 
-         /*static void Main(string[] args)
-          {
-             CreatePayout(true).Wait();
-          }*/
     }
 }

@@ -43,17 +43,5 @@ namespace Samples
             }
         }
 
-        /*static void Main(string[] args)
-        {
-            var response = CreatePayoutSample.CreatePayout(true);
-            HttpResponse createPayoutResponse = response.Result;
-            var payout = createPayoutResponse.Result<CreatePayoutResponse>();
-            
-            var getResponse = GetPayoutSample.GetPayout(payout.BatchHeader.PayoutBatchId,true);
-            HttpResponse getPayoutResponse = getResponse.Result;
-            var payoutBatch = getPayoutResponse.Result<PayoutBatch>();
-
-            GetPayoutItem(payoutBatch.Items[0].PayoutItemId,true).Wait();
-        }*/
     }
 }

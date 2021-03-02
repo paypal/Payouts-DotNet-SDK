@@ -41,7 +41,7 @@ namespace PayoutsSdk.Payouts.Test
             
            try {
                HttpResponse itemGetResponse = await TestHarness.client().Execute(itemGetRequest);
-           } catch(Exception ex){
+           } catch(HttpException ex){
                 String errorString = ex.Message;
                 var deserializedError = new Error();
                 var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(errorString));

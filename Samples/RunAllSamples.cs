@@ -29,11 +29,11 @@ namespace Samples
            
             CancelPayoutItem.CancelItem(payoutBatch.Items[0].PayoutItemId,true).Wait();
 
-         //Error Samples
-          CreatePayoutWithValidationError.CreatePayout(true).Wait();
-          GetPayoutItemSample.GetPayoutItem("123").Wait();
-          GetPayoutSample.GetPayout("abcd",true).Wait();
-          CancelPayoutItem.CancelItem("123",true).Wait();
+          //Error Samples
+            CreatePayoutWithValidationError.CreatePayout(true).Wait();
+            GetPayoutItemSample.GetPayoutItem("123").Wait();
+            GetPayoutSample.GetPayout("abcd",true).Wait();
+            CancelPayoutItem.CancelItem("123",true).Wait();
 
           }
     }

@@ -24,7 +24,7 @@ namespace Samples
          Console.WriteLine("Message "+error.Message);
          foreach(var detail in error.Details){
             Console.WriteLine("Field "+detail.Field);
-             Console.WriteLine("Issue "+detail.Issue);
+            Console.WriteLine("Issue "+detail.Issue);
          }
      }
 

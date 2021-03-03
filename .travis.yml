@@ -6,5 +6,5 @@ dotnet:
 before_install:
 - sudo apt-get install dotnet-sdk-3.1
 script: 
-- '"PAYPAL_CLIENT_ID=AdV4d6nLHabWLyemrw4BKdO9LjcnioNIOgoz7vD611ObbDUL0kJQfzrdhXEBwnH8QmV-7XZjvjRWn0kg  PAYPAL_CLIENT_SECRET=EPKoPC_haZMTq5uM9WXuzoxUVdgzVqHyD5avCyVC1NCIUJeVaNNUZMnzduYIqrdw-carG9LBAizFGMyK dotnet test ./Test/Test.csproj -v normal" -f netcoreapp2.1'
-- '"PAYPAL_CLIENT_ID=AdV4d6nLHabWLyemrw4BKdO9LjcnioNIOgoz7vD611ObbDUL0kJQfzrdhXEBwnH8QmV-7XZjvjRWn0kg  PAYPAL_CLIENT_SECRET=EPKoPC_haZMTq5uM9WXuzoxUVdgzVqHyD5avCyVC1NCIUJeVaNNUZMnzduYIqrdw-carG9LBAizFGMyK dotnet test ./Test/Test.csproj -v normal" -f netcoreapp3.1'
+- "PAYPAL_CLIENT_ID=AdV4d6nLHabWLyemrw4BKdO9LjcnioNIOgoz7vD611ObbDUL0kJQfzrdhXEBwnH8QmV-7XZjvjRWn0kg  PAYPAL_CLIENT_SECRET=EPKoPC_haZMTq5uM9WXuzoxUVdgzVqHyD5avCyVC1NCIUJeVaNNUZMnzduYIqrdw-carG9LBAizFGMyK dotnet test ./Test/Test.csproj -v normal -f netcoreapp2.1"
+- "PAYPAL_CLIENT_ID=AdV4d6nLHabWLyemrw4BKdO9LjcnioNIOgoz7vD611ObbDUL0kJQfzrdhXEBwnH8QmV-7XZjvjRWn0kg  PAYPAL_CLIENT_SECRET=EPKoPC_haZMTq5uM9WXuzoxUVdgzVqHyD5avCyVC1NCIUJeVaNNUZMnzduYIqrdw-carG9LBAizFGMyK dotnet test ./Test/Test.csproj -v normal -f netcoreapp3.1"

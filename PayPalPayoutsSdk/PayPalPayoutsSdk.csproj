@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageVersion>1.1.0</PackageVersion>
     <Owners>PayPal</Owners>
+    <PackageId>PayoutsSdk</PackageId>
     <PackageProjectUrl>https://github.com/paypal/PAYOUTS-NET-SDK</PackageProjectUrl>
     <PackageReleaseNotes>PayPal Payouts 2.0 SDK Release </PackageReleaseNotes>
     <Title>PayoutsSdk</Title>

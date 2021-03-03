@@ -75,8 +75,8 @@ var body = new CreatePayoutRequest(){
     }
     }
 };
- PayoutsPostRequest request = new PayoutsPostRequest() .PayPalPartnerAttributionId("agSzCOx4Ab9pHxgawSO" .PayPalRequestId("M6a5KDUiH6-u6E3D");
-            request.RequestBody(body);
+ PayoutsPostRequest request = new PayoutsPostRequest();
+  request.RequestBody(body);
   var response = await PayPalClient.client().Execute(request);
   var result = response.Result<CreatePayoutResponse>();            
   Console.WriteLine("Status: {0}", result.BatchHeader.BatchStatus);

@@ -41,12 +41,6 @@ namespace PayoutsSdk.Payouts
         public PayoutCurrencyConversion CurrencyConversion;
 
         /// <summary>
-        /// The error information.
-        /// </summary>
-        [DataMember(Name="errors", EmitDefaultValue = false)]
-        public Error Errors;
-
-        /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
         /// </summary>
         [DataMember(Name="fees", EmitDefaultValue = false)]

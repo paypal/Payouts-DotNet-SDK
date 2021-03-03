@@ -26,13 +26,7 @@ namespace PayoutsSdk.Payouts
         /// </summary>
         [DataMember(Name="batch_header", EmitDefaultValue = false)]
         public PayoutBatchHeader BatchHeader;
-
-        /// <summary>
-        /// The error details.
-        /// </summary>
-        [DataMember(Name="errors", EmitDefaultValue = false)]
-        public PayoutError Errors;
-
+        
         /// <summary>
         /// An array of individual items.
         /// </summary>

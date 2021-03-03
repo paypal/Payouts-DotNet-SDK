@@ -40,9 +40,7 @@ namespace PayoutsSdk.Payouts.Test
         return request;
         }
         public static async Task<HttpResponse> TestCreatePayoutRequest(){
-            PayoutsPostRequest request = new PayoutsPostRequest()
-                .PayPalPartnerAttributionId("agSzCOx4Ab9pHxgawSO")
-                .PayPalRequestId("M6a5KDUiH6-u6E3D");
+            PayoutsPostRequest request = new PayoutsPostRequest();
             request.RequestBody(buildRequestBody());
 
             HttpResponse response = await TestHarness.client().Execute(request);

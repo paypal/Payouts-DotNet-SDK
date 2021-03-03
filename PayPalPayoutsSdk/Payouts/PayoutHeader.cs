@@ -27,13 +27,7 @@ namespace PayoutsSdk.Payouts
         /// </summary>
         [DataMember(Name="batch_status", EmitDefaultValue = false)]
         public string BatchStatus;
-
-        /// <summary>
-        /// The error information.
-        /// </summary>
-        [DataMember(Name="errors", EmitDefaultValue = false)]
-        public Error Errors;
-
+        
         /// <summary>
         /// REQUIRED
         /// The PayPal-generated ID for a payout.

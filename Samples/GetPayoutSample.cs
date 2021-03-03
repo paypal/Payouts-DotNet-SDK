@@ -17,6 +17,8 @@ namespace Samples
     {
         public async static Task<HttpResponse> GetPayout(string batchId,bool debug = false)
         {
+            try{
+            
             PayoutsGetRequest request = new PayoutsGetRequest(batchId);
             var getResponse = await PayPalClient.client().Execute(request);
             var result = getResponse.Result<PayoutBatch>();
@@ -33,13 +35,14 @@ namespace Samples
 
             }
             return getResponse;
+            } catch(HttpException ex){
+               
+                String errorString = ex.Message;
+                Error error= ErrorUtil.deserializeError(errorString);
+                ErrorUtil.printError(error);
+                return null;
+            }
         }
 
-       /*static void Main(string[] args)
-        {   var response = CreatePayoutSample.CreatePayout(true);
-            HttpResponse createPayoutResponse = response.Result;
-            var payout = createPayoutResponse.Result<CreatePayoutResponse>();
-            GetPayout(payout.BatchHeader.PayoutBatchId,true).Wait();
-        }*/
     }
 }

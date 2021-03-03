@@ -20,7 +20,7 @@ namespace Samples
             return new SandboxEnvironment(
                  System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_ID") != null ?
                  System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_ID"):"<<PAYPAL-CLIENT-ID>>",
-                System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_SECRET") != null ?
+                 System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_SECRET") != null ?
                  System.Environment.GetEnvironmentVariable("PAYPAL_CLIENT_SECRET"):"<<PAYPAL-CLIENT-SECRET>>");
         }
 

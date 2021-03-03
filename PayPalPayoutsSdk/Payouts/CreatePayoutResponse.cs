@@ -28,12 +28,6 @@ namespace PayoutsSdk.Payouts
         public PayoutHeader BatchHeader;
 
         /// <summary>
-        /// The error details.
-        /// </summary>
-        [DataMember(Name="errors", EmitDefaultValue = false)]
-        public PayoutError Errors;
-
-        /// <summary>
         /// An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links).
         /// </summary>
         [DataMember(Name="links", EmitDefaultValue = false)]

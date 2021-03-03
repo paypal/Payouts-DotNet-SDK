@@ -34,6 +34,16 @@ namespace PayoutsSdk.Payouts
         /// </summary>
         [DataMember(Name="issue", EmitDefaultValue = false)]
         public string Issue;
+
+        /// <summary>
+        /// REQUIRED
+        /// The location of the error.
+        /// </summary>
+        [DataMember(Name="location", EmitDefaultValue = false)]
+        public string Location;
+
+
+
     }
 }
 

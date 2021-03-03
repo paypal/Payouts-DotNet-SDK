@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Samples
 {
-    public class CreatePayoutSample
+    public class CreatePayoutWithValidationError
     {
         private static CreatePayoutRequest buildRequestBody()
         {
@@ -30,7 +30,7 @@ namespace Samples
 
                 Amount=new Currency(){
                     CurrencyCode="USD",
-                    Value="1",
+                    Value="1.0.0",
                  },
                 Receiver="payouts-simulator23@paypal.com",
 
@@ -42,12 +42,13 @@ namespace Samples
         }
         public async static Task<HttpResponse> CreatePayout(bool debug = false)
         {
-            Console.WriteLine("Creating payout with complete payload");
+            Console.WriteLine("Creating payout with Invalid payload");
             
             try {
             PayoutsPostRequest request = new PayoutsPostRequest();
             request.RequestBody(buildRequestBody());
 
+            Console.WriteLine("posting Invalid payload");
 
             var response = await PayPalClient.client().Execute(request);
             var result = response.Result<CreatePayoutResponse>();
@@ -64,12 +65,11 @@ namespace Samples
             }
             return response;
             } catch(HttpException ex){
-               
                 String errorString = ex.Message;
                 Error error= ErrorUtil.deserializeError(errorString);
                 ErrorUtil.printError(error);
                 return null;
-            }
+            } 
         }
 
     }

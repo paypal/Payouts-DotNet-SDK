@@ -51,6 +51,10 @@ namespace PayoutsSdk.Payouts.Test
         {
 
             HttpResponse response = await TestCreatePayoutRequest();
+            System.out.println("TestPayoutsPostRequest");
+            System.out.println((int)response.StatusCode);
+            System.out.println(response.Result<CreatePayoutResponse>());
+
             Assert.Equal(201,(int) response.StatusCode);
             Assert.NotNull(response.Result<CreatePayoutResponse>());
 

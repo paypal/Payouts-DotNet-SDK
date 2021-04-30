@@ -27,6 +27,12 @@ namespace PayoutsSdk.Payouts.Test
             PayoutsItemGetRequest itemGetRequest = new PayoutsItemGetRequest(batchDetails.Items[0].PayoutItemId);
             
             HttpResponse itemGetResponse = await TestHarness.client().Execute(itemGetRequest);
+
+            Console.WriteLine("TestPayoutsItemGetRequest");
+            Console.WriteLine(itemGetResponse.Headers);
+            Console.WriteLine((int)itemGetResponse.StatusCode);
+            Console.WriteLine((string)itemGetResponse.Result<PayoutItemResponse>());
+
             Assert.Equal(200,(int) itemGetResponse.StatusCode);
             Assert.NotNull(itemGetResponse.Result<PayoutItemResponse>());
 

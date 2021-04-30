@@ -37,7 +37,15 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsItemCancelRequest");
             Console.WriteLine(cancelResponse.Headers);
             Console.WriteLine((int)cancelResponse.StatusCode);
-            Console.WriteLine(cancelResponse.Result<PayoutItemResponse>().Links);
+          Console.WriteLine("Status: {0}", cancelResponse.Result<PayoutItemResponse>().BatchHeader.BatchStatus);
+          Console.WriteLine("Item: {0}", cancelResponse.Result<PayoutItemResponse>().Items[0].PayoutItemId);
+          Console.WriteLine("Batch Id: {0}", cancelResponse.Result<PayoutItemResponse>().BatchHeader.PayoutBatchId);
+
+            Console.WriteLine("Links:");
+              foreach (LinkDescription link in cancelResponse.Result<PayoutItemResponse>().Links)
+              {
+                Console.WriteLine("\t{0}: {1}\tCall Type: {2}", link.Rel, link.Href, link.Method);
+              }
 
             Assert.Equal(200,(int) cancelResponse.StatusCode);
             Assert.NotNull(cancelResponse.Result<PayoutItemResponse>());

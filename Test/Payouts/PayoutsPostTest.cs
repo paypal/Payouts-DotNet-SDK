@@ -54,7 +54,7 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsPostRequest");
             Console.WriteLine(response.Headers);
             foreach(object cpr in response.Result<CreatePayoutResponse>()){
-                Console.WriteLine(cpr.ToString);
+                Console.WriteLine((string)cpr);
             }
             Console.WriteLine((int)response.StatusCode);
             Console.WriteLine("Status: {0}", response.Result<CreatePayoutResponse>().BatchHeader.BatchStatus);

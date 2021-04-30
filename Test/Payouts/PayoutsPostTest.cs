@@ -52,9 +52,9 @@ namespace PayoutsSdk.Payouts.Test
 
             HttpResponse response = await TestCreatePayoutRequest();
             Console.WriteLine("TestPayoutsPostRequest");
-            Console.WriteLine(response.headers);
+            Console.WriteLine(response.Headers);
             Console.WriteLine((int)response.StatusCode);
-            Console.WriteLine(response.result);
+            Console.WriteLine(response.Result<CreatePayoutResponse>().ToString);
 
             Assert.Equal(201,(int) response.StatusCode);
             Assert.NotNull(response.Result<CreatePayoutResponse>());

@@ -31,9 +31,6 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsItemGetRequest");
             Console.WriteLine(itemGetResponse.Headers);
             Console.WriteLine((int)itemGetResponse.StatusCode);
-          Console.WriteLine("Status: {0}", itemGetResponse.Result<PayoutItemResponse>().BatchHeader.BatchStatus);
-          Console.WriteLine("Item: {0}", itemGetResponse.Result<PayoutItemResponse>().Items[0].PayoutItemId);
-          Console.WriteLine("Batch Id: {0}", itemGetResponse.Result<PayoutItemResponse>().BatchHeader.PayoutBatchId);
 
             Console.WriteLine("Links:");
               foreach (LinkDescription link in itemGetResponse.Result<PayoutItemResponse>().Links)

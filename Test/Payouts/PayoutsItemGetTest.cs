@@ -31,7 +31,7 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsItemGetRequest");
             Console.WriteLine(itemGetResponse.Headers);
             Console.WriteLine((int)itemGetResponse.StatusCode);
-            Console.WriteLine((string)itemGetResponse.Result<PayoutItemResponse>());
+            Console.WriteLine(itemGetResponse.Result<PayoutItemResponse>().Links);
 
             Assert.Equal(200,(int) itemGetResponse.StatusCode);
             Assert.NotNull(itemGetResponse.Result<PayoutItemResponse>());

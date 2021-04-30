@@ -37,7 +37,7 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsItemCancelRequest");
             Console.WriteLine(cancelResponse.Headers);
             Console.WriteLine((int)cancelResponse.StatusCode);
-            Console.WriteLine((string)cancelResponse.Result<PayoutItemResponse>());
+            Console.WriteLine(cancelResponse.Result<PayoutItemResponse>().Links);
 
             Assert.Equal(200,(int) cancelResponse.StatusCode);
             Assert.NotNull(cancelResponse.Result<PayoutItemResponse>());

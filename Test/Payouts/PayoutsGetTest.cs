@@ -33,7 +33,7 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsGetRequest");
             Console.WriteLine(getResponse.Headers);
             Console.WriteLine((int)getResponse.StatusCode);
-            Console.WriteLine((string)getResponse.Result<PayoutBatch>());
+            Console.WriteLine(getResponse.Result<PayoutBatch>().Links);
 
             Assert.Equal(200,(int) getResponse.StatusCode);
             Assert.NotNull(getResponse.Result<PayoutBatch>());

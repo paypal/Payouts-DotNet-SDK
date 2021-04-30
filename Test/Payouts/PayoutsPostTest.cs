@@ -54,7 +54,7 @@ namespace PayoutsSdk.Payouts.Test
             Console.WriteLine("TestPayoutsPostRequest");
             Console.WriteLine(response.Headers);
             Console.WriteLine((int)response.StatusCode);
-            Console.WriteLine((string)response.Result<CreatePayoutResponse>());
+            Console.WriteLine(response.Result<CreatePayoutResponse>().Links);
 
             Assert.Equal(201,(int) response.StatusCode);
             Assert.NotNull(response.Result<CreatePayoutResponse>());

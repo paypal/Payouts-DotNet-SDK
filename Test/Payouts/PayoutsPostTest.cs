@@ -53,6 +53,7 @@ namespace PayoutsSdk.Payouts.Test
             HttpResponse response = await TestCreatePayoutRequest();
             Console.WriteLine("TestPayoutsPostRequest");
             Console.WriteLine(response.Headers);
+            Console.WriteLine(response.Result<CreatePayoutResponse>().Headers);
             Console.WriteLine((int)response.StatusCode);
             Console.WriteLine("Status: {0}", response.Result<CreatePayoutResponse>().BatchHeader.BatchStatus);
             Console.WriteLine("Batch Id: {0}", response.Result<CreatePayoutResponse>().BatchHeader.PayoutBatchId);

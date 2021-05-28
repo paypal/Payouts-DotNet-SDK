@@ -119,7 +119,7 @@ You may use the client id and secret above for demonstration purposes.
 
 ## Samples
 
-You can start off by trying out [/Payouts-DotNet-SDK/tree/master/Samples]().
+You can start off by trying out [/Payouts-DotNet-SDK/tree/master/Samples](https://github.com/paypal/Payouts-DotNet-SDK/tree/master/Samples).
 
 Note: Update the `PayPalClient.cs` with your sandbox client credentials or pass your client credentials as environment variable while executing the samples.
 

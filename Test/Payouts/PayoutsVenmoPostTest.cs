@@ -14,7 +14,7 @@ using PayoutsSdk.Core;
 namespace PayoutsSdk.Payouts.Test
 {
     [Collection("Payouts")]
-    public class PayoutsPostTest
+    public class PayoutsVenmoPostTest
     {
         public static CreatePayoutRequest buildRequestBody()
         {
@@ -32,8 +32,14 @@ namespace PayoutsSdk.Payouts.Test
                     CurrencyCode="USD",
                     Value="1",
                  },   
-                Receiver="payouts-simulator25@paypal.com",
-
+                Receiver="payouts-simulator23@paypal.com",
+                RecipientWallet="VENMO",
+                Note = "This is a test note",
+                VenmoContext = new VenmoContext(){
+                    LogoURL = "https://i.imgur.com/eOYIYgM.png",
+                    HollerURL= "https://cdn.emogi.com/holler",
+                    SocialFeedPrivacy = "friends_only"
+                }
             }
             }
         };

@@ -25,17 +25,25 @@ namespace PayoutsSdk.Payouts.Test
             CreatePayoutResponse batch = response.Result<CreatePayoutResponse>();
             PayoutsGetRequest request = new PayoutsGetRequest(batch.BatchHeader.PayoutBatchId);
 
+            
 
+            Thread.Sleep(10000);
             HttpResponse getResponse = await TestHarness.client().Execute(request);
             PayoutBatch batchDetails = getResponse.Result<PayoutBatch>();
+            Assert.NotNull(batchDetails.Items);
+            Assert.NotNull(batchDetails.Items[0]);
+            Assert.NotNull(batchDetails.Items[0].PayoutItemId);
+
+            Console.WriteLine("Status: "+batchDetails.Items[0].TransactionStatus);
             Thread.Sleep(10000);
 
-            PayoutsItemCancelRequest cancelRequest = new PayoutsItemCancelRequest(batchDetails.Items[0].PayoutItemId);
+            if(batchDetails.Items[0].TransactionStatus.Equals("UNCLAIMED")){
+                PayoutsItemCancelRequest cancelRequest = new PayoutsItemCancelRequest(batchDetails.Items[0].PayoutItemId);
 
-            HttpResponse cancelResponse = await TestHarness.client().Execute(cancelRequest);
-            Assert.Equal(200,(int) cancelResponse.StatusCode);
-            Assert.NotNull(cancelResponse.Result<PayoutItemResponse>());
-
+                HttpResponse cancelResponse = await TestHarness.client().Execute(cancelRequest);
+                Assert.Equal(200,(int) cancelResponse.StatusCode);
+                Assert.NotNull(cancelResponse.Result<PayoutItemResponse>());
+            }
             // Add your own checks here
         }
 

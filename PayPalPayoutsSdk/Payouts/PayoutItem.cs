@@ -7,7 +7,6 @@
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 
-
 namespace PayoutsSdk.Payouts
 {
     /// <summary>
@@ -64,6 +63,14 @@ namespace PayoutsSdk.Payouts
         /// </summary>
         [DataMember(Name="sender_item_id", EmitDefaultValue = false)]
         public string SenderItemId;
+
+        /// <summary>
+        /// Application Context for Venmo. Used to send holler url, logo url and privacy
+        /// </summary>
+        [DataMember(Name="application_context", EmitDefaultValue = false)]
+        public VenmoContext VenmoContext;
+
+
     }
 }
 

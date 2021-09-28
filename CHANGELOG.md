@@ -1,3 +1,7 @@
+### 1.1.1 (2021-09-21)
+
+* Updated PayPal HTTP package version from 1.0.0 -> 1.0.1
+
 ### 1.1.0 (2021-02-24)
 
 *  Remove unused error from CreatePayoutResponse ([9abd12c](https://github.com/paypal/Payouts-DotNet-SDK/commits/9abd12cfbe35097e600500952f0a445295e3ea80))

@@ -33,6 +33,17 @@ namespace PayoutsSdk.Payouts.Test
             PayoutsItemCancelRequest cancelRequest = new PayoutsItemCancelRequest(batchDetails.Items[0].PayoutItemId);
 
             HttpResponse cancelResponse = await TestHarness.client().Execute(cancelRequest);
+
+            Console.WriteLine("TestPayoutsItemCancelRequest");
+            Console.WriteLine(cancelResponse.Headers);
+            Console.WriteLine((int)cancelResponse.StatusCode);
+
+            Console.WriteLine("Links:");
+              foreach (LinkDescription link in cancelResponse.Result<PayoutItemResponse>().Links)
+              {
+                Console.WriteLine("\t{0}: {1}\tCall Type: {2}", link.Rel, link.Href, link.Method);
+              }
+
             Assert.Equal(200,(int) cancelResponse.StatusCode);
             Assert.NotNull(cancelResponse.Result<PayoutItemResponse>());
 
